@@ -21,6 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('email');
             $table->string('city');
             $table->string('agency');
+            $table->string('investments');
         });
     }
 

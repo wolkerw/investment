@@ -27,6 +27,7 @@
           <td>E-mail</td>
           <td>Cidade</td>
           <td>Agência</td>
+          <td>Investimentos</td>
           <td colspan = 2>Ações</td>
         </tr>
     </thead>
@@ -39,6 +40,7 @@
             <td>{{$client->email}}</td>
             <td>{{$client->city}}</td>
             <td>{{$client->agency}}</td>
+            <td>{{$client->investments}}</td>
             <td>
                 <a href="{{ route('clients.edit',$client->id)}}" class="btn btn-primary">Editar</a>
             </td>

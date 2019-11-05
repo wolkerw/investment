@@ -11,6 +11,7 @@ class Client extends Model
         'phone',
         'email',
         'city',
-        'agency'
+        'agency',
+        'investments'
     ];
 }

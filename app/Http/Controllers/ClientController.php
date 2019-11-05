@@ -47,7 +47,8 @@ class ClientController extends Controller
             'phone' => $request->get('phone'),
             'email' => $request->get('email'),
             'city' => $request->get('city'),
-            'agency' => $request->get('agency')
+            'agency' => $request->get('agency'),
+            'investments' => $request->get('investments') ? $request->get('investments') : ''
         ]);
         $client->save();
         return redirect('/clients')->with('success', 'Cliente salvo!');
@@ -96,6 +97,7 @@ class ClientController extends Controller
         $client->email = $request->get('email');
         $client->city = $request->get('city');
         $client->agency = $request->get('agency');
+        $client->investments = $request->get('investments') ? $request->get('investments') : '';
         $client->save();
 
         return redirect('/clients')->with('success', 'Cliente atualizado com sucesso!');

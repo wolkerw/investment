@@ -40,6 +40,10 @@
                 <label for="agency">Agência:</label>
                 <input type="text" class="form-control" name="agency" value={{ $client->agency }} />
             </div>
+            <div class="form-group">
+                <label for="agency">Investimentos:</label>
+                <input type="text" class="form-control" name="investments" value={{ $client->investments }} />
+            </div>
             <button type="submit" class="btn btn-primary">Editar</button>
         </form>
     </div>
