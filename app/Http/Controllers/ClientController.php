@@ -14,7 +14,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::all();
+
+        return view('clients.index', compact('clients'));
     }
 
     /**
@@ -70,7 +72,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::find($id);
+        return view('clients.edit', compact('client'));
     }
 
     /**
@@ -82,7 +85,20 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required'
+        ]);
+
+        $client = Client::find($id);
+        $client->name =  $request->get('name');
+        $client->phone = $request->get('phone');
+        $client->email = $request->get('email');
+        $client->city = $request->get('city');
+        $client->agency = $request->get('agency');
+        $client->save();
+
+        return redirect('/clients')->with('success', 'Cliente atualizado com sucesso!');
     }
 
     /**
@@ -93,6 +109,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+        $client->delete();
+
+        return redirect('/clients')->with('success', 'Cliente deletado com sucesso!');
     }
 }
